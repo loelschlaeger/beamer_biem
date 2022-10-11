@@ -1,0 +1,1 @@
+This repository contains a template for [Rmarkdown beamer slides](https://bookdown.org/yihui/rmarkdown/beamer-presentation.html) in corporate design of [Bielefeld University](https://www.uni-bielefeld.de/).
