@@ -8,7 +8,7 @@ output:
   beamer_presentation:
     latex_engine: xelatex
     includes: 
-      in_header: preamble.tex
+      in_header: theme/preamble.tex
 classoption: "aspectratio = 169, xcolor = dvipsnames, margin = 2cm"
 fontsize: 9pt
 ---
