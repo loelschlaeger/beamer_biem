@@ -6,5 +6,5 @@ Instructions to use this template:
 1. Either
     - click ["Use this template"](https://github.com/loelschlaeger/slides_template/generate) or
     - download and unzip the repository, e.g., via [DownGit](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/loelschlaeger/slides_template/tree/master).
-2. Open and modify `slides.Rmd` in RStudio.
+2. Open and modify `slides.Rmd` (and `theme/footer.tex`) in RStudio.
 3. Run `rmarkdown::render("slides.Rmd")`.

@@ -6,11 +6,16 @@ institute: "Institute"
 date: "`r Sys.Date()`"
 output: 
   beamer_presentation:
+    slide_level: 2
+    toc: true
+    template: theme/template.tex
     latex_engine: xelatex
     includes: 
-      in_header: theme/preamble.tex
+      in_header: theme/header.tex
+      after_body: theme/footer.tex
+    keep_tex: false
 classoption: "aspectratio = 169, xcolor = dvipsnames, margin = 2cm"
-fontsize: 9pt
+fontsize: 10pt
 ---
 
 ```{r, include = FALSE}
