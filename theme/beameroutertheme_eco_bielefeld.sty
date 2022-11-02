@@ -10,30 +10,38 @@
 
 \mode<presentation>
 
-% Mini frames
-\defbeamertemplate*{mini frame}{bfeld}
-{%
-  \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}
-    \pgfpathcircle{\pgfpoint{0.05cm}{0.05cm}}{0.05cm}
-    \pgfusepath{fill,stroke}
-  \end{pgfpicture}%
-}
-[action]
-{
-  \setbeamersize{mini frame size=.29cm,mini frame offset=0.03cm
-  }
+\setbeamersize{
+  text margin left  = 10mm, 
+  text margin right = 10mm
 }
 
-\defbeamertemplate*{mini frame in current subsection}{bfeld}
-{%
-  \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}
-    \pgfpathcircle{\pgfpoint{0.05cm}{0.05cm}}{0.05cm}
-    \pgfusepath{stroke}
-  \end{pgfpicture}%
-}
+\setbeamertemplate{frametitle}[default][left, leftskip = 4cm]
+\addtobeamertemplate{frametitle}{\vspace*{0.5cm}}{\vspace*{0.3cm}}
 
-\defbeamertemplate*{mini frame in other subsection}{bfeld}[1][50]
-{\color{fg!#1!bg}\usebeamertemplate{mini frame in current subsection}}
+% % Mini frames
+% \defbeamertemplate*{mini frame}{bfeld}
+% {%
+%   \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}
+%     \pgfpathcircle{\pgfpoint{0.05cm}{0.05cm}}{0.05cm}
+%     \pgfusepath{fill,stroke}
+%   \end{pgfpicture}%
+% }
+% [action]
+% {
+%   \setbeamersize{mini frame size=.29cm,mini frame offset=0.03cm
+%   }
+% }
+% 
+% \defbeamertemplate*{mini frame in current subsection}{bfeld}
+% {%
+%   \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}
+%     \pgfpathcircle{\pgfpoint{0.05cm}{0.05cm}}{0.05cm}
+%     \pgfusepath{stroke}
+%   \end{pgfpicture}%
+% }
+% 
+% \defbeamertemplate*{mini frame in other subsection}{bfeld}[1][50]
+% {\color{fg!#1!bg}\usebeamertemplate{mini frame in current subsection}}
 
 % Navigation symbols
 \defbeamertemplate*{navigation symbols}{bfeld}
@@ -47,51 +55,50 @@
     \hbox{\insertbackfindforwardnavigationsymbol}%
   }%
 }
-
-% No navigation symbols in handout or trans mode:
 \only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
 
-% Section and subsections in head/foot
-\defbeamertemplate*{section in head/foot}{bfeld}
-{\insertsectionhead}
+% % Section and subsections in head/foot
+% \defbeamertemplate*{section in head/foot}{bfeld}
+% {\insertsectionhead}
+% 
+% \defbeamertemplate*{section in head/foot shaded}{bfeld}[1][50]
+% {\color{fg!#1!bg}\usebeamertemplate{section in head/foot}}
+% 
+% \defbeamertemplate*{subsection in head/foot}{bfeld}
+% {\insertsubsectionhead}
+% 
+% \defbeamertemplate*{subsection in head/foot shaded}{bfeld}[1][50]
+% {\color{fg!#1!bg}\usebeamertemplate{subsection in head/foot}}
+% 
+% \defbeamertemplate*{subsubsection in head/foot}{bfeld}
+% {\insertsubsubsectionhead}
+% 
+% \defbeamertemplate*{subsubsection in head/foot shaded}{bfeld}[1][50]
+% {\color{fg!#1!bg}\usebeamertemplate{subsubsection in head/foot}}
+% 
+% \definecolor{bfeld@blue}{RGB}{70,80,110}
+% 
+% % Headline
+% \defbeamertemplate*{headline}{bfeld}
+% {\vskip 6pt
+% \leavevmode%
+%  \hbox{%
+%     \begin{beamercolorbox}[wd=\paperwidth,ht=10ex,dp=5ex]{section in head/foot}%
+%     \ifx\insertsection\empty
+% 		\else
+% 			\ifx\insertsubsection\empty
+% 				\hspace{0.2\paperwidth}{\Large\color{bfeld@blue}\thesection.~\secname}
+% 			\else
+% 				\hspace{0.2\paperwidth}{\Large\color{bfeld@blue}\thesection.~\thesubsection.~\subsecname}
+% 			\fi
+% 		\fi
+%     \end{beamercolorbox}%
+%   }
+% }
 
-\defbeamertemplate*{section in head/foot shaded}{bfeld}[1][50]
-{ \color{fg!#1!bg}\usebeamertemplate{section in head/foot}}
-
-\defbeamertemplate*{subsection in head/foot}{bfeld}
-{\insertsubsectionhead}
-
-\defbeamertemplate*{subsection in head/foot shaded}{bfeld}[1][50]
-{\color{fg!#1!bg}\usebeamertemplate{subsection in head/foot}}
-
-\defbeamertemplate*{subsubsection in head/foot}{bfeld}
-{\insertsubsubsectionhead}
-
-\defbeamertemplate*{subsubsection in head/foot shaded}{bfeld}[1][50]
-{\color{fg!#1!bg}\usebeamertemplate{subsubsection in head/foot}}
-
-\definecolor{bfeld@blue}{RGB}{70,80,110}
-
-% Headline and footline
-\defbeamertemplate*{headline}{bfeld}
-{ \vskip 6pt
-\leavevmode%
- \hbox{%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=10ex,dp=5ex]{section in head/foot}%
-    \ifx\insertsection\empty
-		\else
-			\ifx\insertsubsection\empty
-				\hspace{0.3\paperwidth}{\Large\color{bfeld@blue}\thesection.~\secname}
-			\else
-				\hspace{0.3\paperwidth}{\Large\color{bfeld@blue}\thesection.~\thesubsection.~\subsecname}
-			\fi
-		\fi
-    \end{beamercolorbox}%
-  }
-}
-
+% Footline
 \defbeamertemplate*{footline}{bfeld}
-{ \leavevmode%
+{\leavevmode%
 \hskip 0.05\linewidth
   \hbox{%
   \begin{beamercolorbox}[wd=.5\linewidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
@@ -99,16 +106,15 @@
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
     \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-    \insertframenumber{} / \inserttotalframenumber\hspace*{3ex} 
+    \insertframenumber{} / \inserttotalframenumber\hspace*{3ex}
   \end{beamercolorbox}
   }%
   \hskip 0.05\linewidth
   \vskip 10pt%
 }
 
-% background
-\defbeamertemplate*{background}{bfeld}
-{}
+% Background
+\defbeamertemplate*{background}{bfeld}{}
 
 \defbeamertemplate*{background canvas}{bfeld}
 {%
@@ -116,8 +122,7 @@
 }
 
 % Sidebar
-\defbeamertemplate*{sidebar left}{bfeld}
-{}
+\defbeamertemplate*{sidebar left}{bfeld}{}
 
 \defbeamertemplate*{sidebar right}{bfeld}
 {
@@ -136,77 +141,31 @@
   \ifbeamercolorempty[bg]{sidebar right}{}
   {\color{bg}\vrule height\sidebarheight width\beamer@rightsidebar}%
 }
-
-% Frame title: default
-\defbeamertemplate*{frametitle}{bfeld}[1][left]
-{
-  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-  \@tempdima=0.92\linewidth %
-  \advance\@tempdima by\beamer@leftmargin%
-  \advance\@tempdima by\beamer@rightmargin%
-  \vspace{-1.25cm}
-  \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
-    \usebeamerfont{frametitle}%
-    \vbox{}\vskip-1ex%
-    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
-    \strut\insertframetitle\strut\par%
-    {%
-      \ifx\insertframesubtitle\@empty%
-      \else%
-      {\usebeamerfont{frametitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
-      \fi
-    }%
-    \vskip-10ex%
-    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
-  \end{beamercolorbox}%
-}
-\def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by1.7cm}
-
-% Frame title continuations, default
-\defbeamertemplate*{frametitle continuation}{bfeld}{\insertcontinuationcountroman}
-
-% Notes
-\defbeamertemplate*{note page}{bfeld}
-{%
-  {%
-    \scriptsize
-    \insertvrule{.25\paperheight}{white!90!black}
-    \vskip-.25\paperheight
-    \nointerlineskip
-    \vbox{
-      \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
-      \vskip-0.25\paperheight%
-      \nointerlineskip
-      \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
-        \begin{pgflowlevelscope}{\pgftransformrotate{90}}
-          {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
-          \pgftext[base,left]{\footnotesize\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
-        \end{pgflowlevelscope}
-      \end{pgfpicture}}
-    \nointerlineskip
-    \vbox to .25\paperheight{\vskip0.5em
-      \hbox{\insertshorttitle[width=8cm]}%
-      \setbox\beamer@tempbox=\hbox{\insertsection}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
-      }%
-      \setbox\beamer@tempbox=\hbox{\insertsubsection}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
-      }%
-      \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
-      }%
-      \vfil}%
-  }%
-  \vskip.25em
-  \nointerlineskip
-  \insertnote
-}
+ 
+% % Frame title
+% \defbeamertemplate*{frametitle}{bfeld}[1][left]
+% {
+%   \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+%   \@tempdima=0.92\linewidth %
+%   \advance\@tempdima by\beamer@leftmargin%
+%   \advance\@tempdima by\beamer@rightmargin%
+%   \vspace{-1.25cm}
+%   \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+%     \usebeamerfont{frametitle}%
+%     \vbox{}\vskip-1ex%
+%     \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+%     \strut\insertframetitle\strut\par%
+%     {%
+%       \ifx\insertframesubtitle\@empty%
+%       \else%
+%       {\usebeamerfont{frametitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+%       \fi
+%     }%
+%     \vskip-10ex%
+%     \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+%   \end{beamercolorbox}%
+% }
+% \def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by1.7cm}
 
 \mode
 <all>

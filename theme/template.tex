@@ -27,6 +27,7 @@ $endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
+xcolor = dvipsnames
 ]{$documentclass$}
 $if(beamer)$
 $if(background-image)$
@@ -430,6 +431,15 @@ $if(logo)$
 \logo{\includegraphics{$logo$}}
 $endif$
 $endif$
+$if(beamer)$
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{$toc-title$}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+$endif$
 
 \begin{document}
 $if(has-frontmatter)$
@@ -437,7 +447,9 @@ $if(has-frontmatter)$
 $endif$
 $if(title)$
 $if(beamer)$
-\frame{\titlepage}
+\begin{frame}[plain]{}
+  \titlepage
+\end{frame}
 $else$
 \maketitle
 $endif$
@@ -453,15 +465,10 @@ $include-before$
 
 $endfor$
 $if(toc)$
-$if(toc-title)$
-\renewcommand*\contentsname{$toc-title$}
-$endif$
 $if(beamer)$
-\begin{frame}[allowframebreaks]
-$if(toc-title)$
+\begin{frame}
   \frametitle{$toc-title$}
-$endif$
-  \tableofcontents[hideallsubsections]
+  \tableofcontents
 \end{frame}
 $else$
 {
