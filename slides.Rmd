@@ -13,7 +13,7 @@ output:
     includes: 
       in_header: theme/header.tex
       after_body: theme/footer.tex
-    keep_tex: false
+    keep_tex: true
 fontsize: 10pt
 aspectratio: 169
 toc-title: "What this talk is about"
@@ -21,7 +21,8 @@ toc-title: "What this talk is about"
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  out.height = "70%"
+  out.height = "70%",
+  fig.path   = "figures/"
 ) 
 ```
 
