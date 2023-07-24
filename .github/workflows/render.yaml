@@ -12,13 +12,13 @@ jobs:
     
       - uses: r-lib/actions/setup-pandoc@v2
       
-      - name: Install tinytex
-        run: Rscript -e 'install.packages("tinytex")'
-        run: Rscript -e 'tinytex::install_tinytex()'
-        
       - name: Render slides
-        run: Rscript -e 'install.packages("rmarkdown")'
-        run: Rscript -e 'rmarkdown::render("slides.Rmd")'
+        run: |
+          install.packages("tinytex")
+          tinytex::install_tinytex()
+          install.packages("rmarkdown")
+          rmarkdown::render("slides.Rmd")
+        shell: Rscript {0}
 
       - name: Commit results
         run: |
