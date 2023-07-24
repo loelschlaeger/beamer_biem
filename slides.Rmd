@@ -38,7 +38,8 @@ knitr::opts_chunk$set(
 ## Subsection 1.1
 
 - This template uses the [Lelo font](https://camelot-typefaces.com/lelo).
-- The font is set via `\usepackage{fontspec}`, which requires XeLaTeX or LuaLaTeX as LaTeX engine.
+- The font is set via `\usepackage{fontspec}`, which requires XeLaTeX or LuaLaTeX.
+- When compiling this template, make sure that either XeLaTeX or LuaLaTeX is the selected LaTeX engine.
 
 ## Subsection 1.2
 
