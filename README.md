@@ -1,12 +1,12 @@
 ## Aim :pushpin:
 
-This repository contains a template for [LaTeX beamer slides](https://en.wikipedia.org/wiki/Beamer_(LaTeX)) and [Rmarkdown beamer slides](https://bookdown.org/yihui/rmarkdown/beamer-presentation.html) in corporate design of [Bielefeld University](https://www.uni-bielefeld.de/) and serves as a starting point to create slides for the Empirical Methods Department.
+This repository contains a template for [LaTeX beamer slides](https://en.wikipedia.org/wiki/Beamer_(LaTeX)) and [Rmarkdown beamer slides](https://bookdown.org/yihui/rmarkdown/beamer-presentation.html) in corporate design of [Bielefeld University](https://www.uni-bielefeld.de/) and serves as a starting point to create a presentation for the Empirical Methods Department.
 
-Does the currently version render? ![test](https://github.com/loelschlaeger/beamer_biem/actions/workflows/render.yaml/badge.svg)
+Does the current version render? &nbsp; &nbsp; [![test](https://github.com/loelschlaeger/beamer_biem/actions/workflows/render.yaml/badge.svg)](#)
 
 ## Preview :eyes:
 
-See [here](https://github.com/loelschlaeger/slides_template/blob/master/slides.pdf) for a preview. 
+See [here](https://github.com/loelschlaeger/slides_template/blob/master/slides.pdf) for a preview of the slides. 
 
 ## Using this template :pencil2:
 
@@ -16,7 +16,7 @@ Instructions to use this template:
    
    - click ["Use this template"](https://github.com/loelschlaeger/slides_template/generate)
    
-   - or download and unzip the repository, e.g., via [DownGit](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/loelschlaeger/slides_template/tree/master).
+   - or download and unzip the repository (e.g., via [DownGit](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/loelschlaeger/slides_template/tree/master)).
    
 2. Read the instructions in `slides.pdf`.
     
