@@ -13,9 +13,11 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v2
       
       - name: Install tinytex
+        run: Rscript -e 'install.packages("tinytex")'
         run: Rscript -e 'tinytex::install_tinytex()'
         
-      - name: Render CV to cv folder
+      - name: Render slides
+        run: Rscript -e 'install.packages("rmarkdown")'
         run: Rscript -e 'rmarkdown::render("slides.Rmd")'
 
       - name: Commit results
