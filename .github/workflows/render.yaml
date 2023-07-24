@@ -1,6 +1,9 @@
 name: render
 
-on: push
+on:
+  push:
+    paths:
+      - "slides.Rmd"
 
 jobs:
   render:
