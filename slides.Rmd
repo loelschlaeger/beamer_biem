@@ -1,22 +1,29 @@
 ---
+# do not touch this
+output: 
+  beamer_presentation:
+    template: theme/template.tex
+    latex_engine: xelatex
+    keep_tex: true
+
+# set the title, presenter, institute, and date
 title: "Title"
 subtitle: "Subtitle"
 author: "Presenter"
 institute: "Institute"
 date: "`r Sys.Date()`"
-output: 
-  beamer_presentation:
-    slide_level: 2
-    toc: true
-    template: theme/template.tex
-    latex_engine: xelatex
-    includes: 
-      in_header: theme/header.tex
-      after_body: theme/footer.tex
-    keep_tex: true
+    
+# set beamer options
+handout: false
 fontsize: 10pt
 aspectratio: 169
-toc-title: "What this talk is about"
+
+# define table of contents
+toc: true
+toc-title: "What this talk is about" 
+
+# define last slide
+last-slide: true
 ---
 
 ```{r, include = FALSE}
@@ -30,8 +37,8 @@ knitr::opts_chunk$set(
 
 ## Subsection 1.1
 
-- Item 1
-- Item 2
+- This template uses the [Lelo font](https://camelot-typefaces.com/lelo).
+- The font is set via `\usepackage{fontspec}`, which requires XeLaTeX or LuaLaTeX as LaTeX engine.
 - Item 3
 
 ## Subsection 1.2

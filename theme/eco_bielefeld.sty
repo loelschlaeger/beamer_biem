@@ -1,0 +1,104 @@
+\mode<presentation>
+
+%%% color %%%
+\definecolor{bfeld@green}{RGB}{0,117,86}
+\definecolor{bfeld@blue}{RGB}{70,80,110}
+\definecolor{bfeld@grey}{RGB}{124, 131, 136}
+\definecolor{lgr}{RGB}{200,200,200}
+\definecolor{bfeld@red}{RGB}{180,20,20}
+\definecolor{bfeld@lightgrey}{RGB}{242,242,242}
+\setbeamercolor*{title}{fg=bfeld@blue}
+\setbeamercolor*{subtitle}{fg=bfeld@grey}
+\setbeamercolor*{author}{fg=bfeld@green}
+\setbeamercolor*{date}{fg=bfeld@green}
+\setbeamercolor*{institution}{fg=bfeld@green}
+\setbeamercolor*{frametitle}{fg=bfeld@blue}
+\setbeamercolor*{framesubtitle}{fg=bfeld@grey}
+\setbeamercolor*{item}{fg=bfeld@blue}
+\setbeamercolor*{subitem}{fg=bfeld@grey}
+\setbeamercolor*{normal text}{fg=black,bg=white}
+\setbeamercolor*{alerted text}{fg=bfeld@red}
+\setbeamercolor*{example text}{fg=black}
+\setbeamercolor*{structure}{fg=bfeld@grey}
+\setbeamercolor*{author in head/foot}{fg=bfeld@grey}
+\setbeamercolor*{date in head/foot}{fg=bfeld@grey}
+\setbeamerfont{alerted text}{series=\bfseries}
+\setbeamercolor*{block body}{bg= lgr}
+\setbeamercolor*{block title}{fg=white, bg = bfeld@grey}
+
+%%% inner %%%
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+%%% outer %%%
+\setbeamersize{
+  text margin left  = 10mm, 
+  text margin right = 10mm
+}
+
+\setbeamertemplate{frametitle}[default][left, leftskip = 4cm]
+\addtobeamertemplate{frametitle}{\vspace*{0.5cm}}{\vspace*{0.3cm}}
+
+% Navigation symbols
+\defbeamertemplate*{navigation symbols}{bfeld}
+{%
+  \hbox{%
+    \hbox{\insertslidenavigationsymbol}
+    \hbox{\insertframenavigationsymbol}
+    \hbox{\insertsubsectionnavigationsymbol}
+    \hbox{\insertsectionnavigationsymbol}
+    \hbox{\insertdocnavigationsymbol}
+    \hbox{\insertbackfindforwardnavigationsymbol}%
+  }%
+}
+\only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
+
+% Footline
+\defbeamertemplate*{footline}{bfeld}
+{\leavevmode%
+\hskip 0.05\linewidth
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\linewidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hspace*{3ex}\insertshortauthor~~$|$~~\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{3ex}
+  \end{beamercolorbox}
+  }%
+  \hskip 0.05\linewidth
+  \vskip 10pt%
+}
+
+% Background
+\defbeamertemplate*{background}{bfeld}{}
+
+\defbeamertemplate*{background canvas}{bfeld}
+{%
+  \ifbeamercolorempty[bg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}%
+}
+
+% Sidebar
+\defbeamertemplate*{sidebar left}{bfeld}{}
+
+\defbeamertemplate*{sidebar right}{bfeld}
+{
+  \llap{\usebeamertemplate***{navigation symbols}\hskip 0.1cm}%
+  \vskip2pt%
+}
+
+\defbeamertemplate*{sidebar canvas left}{bfeld}
+{%
+  \ifbeamercolorempty[bg]{sidebar left}{}
+  {\color{bg}\vrule height\sidebarheight width\beamer@leftsidebar}%
+}
+
+\defbeamertemplate*{sidebar canvas right}{bfeld}
+{%
+  \ifbeamercolorempty[bg]{sidebar right}{}
+  {\color{bg}\vrule height\sidebarheight width\beamer@rightsidebar}%
+}
+
+\mode<all>

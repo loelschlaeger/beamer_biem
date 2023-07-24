@@ -332,9 +332,48 @@ $endfor$
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
 $endif$
-$for(header-includes)$
-$header-includes$
-$endfor$
+
+\usepackage[english]{babel}		
+\usepackage[T1]{fontenc}	
+\usepackage[scaled]{helvet}		
+\usepackage[overlay,absolute]{textpos}	
+\usepackage{amsmath,amssymb}	
+
+\usepackage{fontspec}
+\setmainfont[
+    Path            = ./theme/,
+    Extension       = .otf,
+    Ligatures       = TeX,
+    UprightFont     = *-Regular,
+    ItalicFont      = *-RegularItalic,
+    BoldFont        = *-Bold,
+    BoldItalicFont  = *-BoldItalic
+]{Lelo}
+
+\usepackage{theme/eco_bielefeld}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{fontawesome}
+\usepackage{booktabs}		
+\usepackage{xcolor}			     
+\usepackage{hyperref}			
+\usepackage{verbatim}			
+\usepackage{graphicx}			
+\usepackage{subcaption}		
+\usepackage{relsize}			
+\usepackage{natbib}		
+\bibliographystyle{dcu}
+
+\usebackgroundtemplate{
+  \vbox{ 
+    \vspace{10pt}
+    \begin{tabular}{p{0.01\paperwidth} p{0.78\paperwidth} p{0.2\paperwidth} p{0.01\paperwidth}} 
+      & \vspace{0pt} \includegraphics[width=2.25cm]{theme/logo_unibi.png} & \vspace{0pt} \includegraphics[width=1.75cm]{theme/logo_em.png} &
+  \end{tabular}
+  }
+}
+
+
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -528,8 +567,19 @@ $else$
 $endif$
 
 $endif$
-$for(include-after)$
-$include-after$
 
-$endfor$
+$if(last-slide)$
+\begin{frame}{}
+    \vspace{0.5cm}
+    \begin{center}
+        {\Large Thanks for your attention!}
+    \end{center}
+    \vfill
+    \begin{itemize}
+      \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
+      \item[\faLaptop] \href{https://example.org/}{https://example.org/}
+    \end{itemize}
+\end{frame}
+$endif$
+
 \end{document}

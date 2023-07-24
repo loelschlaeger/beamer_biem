@@ -71,15 +71,6 @@ xcolor = dvipsnames
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Copyright 2007 by Till Tantau
-%
-% This file may be distributed and/or modified
-%
-% 1. under the LaTeX Project Public License and/or
-% 2. under the GNU Public License.
-%
-% Inofficial Econometrics Bielefeld Beamer Style
-% Author: Dietmar Bauer (adapted from AIT style from Jakob Puchinger)
 
 \usepackage[english]{babel}		
 \usepackage[T1]{fontenc}	
@@ -98,10 +89,7 @@ xcolor = dvipsnames
     BoldItalicFont  = *-BoldItalic
 ]{Lelo}
 
-\usepackage{theme/beamercolortheme_eco_bielefeld}
-\usepackage{theme/beamerinnertheme_eco_bielefeld}
-\usepackage{theme/beameroutertheme_eco_bielefeld}
-
+\usepackage{theme/eco_bielefeld}
 \setbeamertemplate{navigation symbols}{}
 
 \usepackage{fontawesome}
@@ -119,7 +107,7 @@ xcolor = dvipsnames
   \vbox{ 
     \vspace{10pt}
     \begin{tabular}{p{0.01\paperwidth} p{0.78\paperwidth} p{0.2\paperwidth} p{0.01\paperwidth}} 
-      & \vspace{0pt} \includegraphics[width=2.25cm]{theme/uni.png} & \vspace{0pt} \includegraphics[width=1.75cm]{theme/em.png} &
+      & \vspace{0pt} \includegraphics[width=2.25cm]{theme/logo_unibi.png} & \vspace{0pt} \includegraphics[width=1.75cm]{theme/logo_em.png} &
   \end{tabular}
   }
 }
@@ -162,14 +150,16 @@ xcolor = dvipsnames
 \hypertarget{section-1}{%
 \section{Section 1}\label{section-1}}
 
-\begin{frame}{Subsection 1.1}
+\begin{frame}[fragile]{Subsection 1.1}
 \protect\hypertarget{subsection-1.1}{}
 \begin{itemize}
 \tightlist
 \item
-  Item 1
+  This template uses the \href{https://camelot-typefaces.com/lelo}{Lelo
+  font}.
 \item
-  Item 2
+  The font is set via \texttt{\textbackslash{}usepackage\{fontspec\}},
+  which requires XeLaTeX or LuaLaTeX as LaTeX engine.
 \item
   Item 3
 \end{itemize}
@@ -217,7 +207,8 @@ xcolor = dvipsnames
 \end{itemize}
 \end{frame}
 
-\begin{frame}[plain]{}
+
+\begin{frame}{}
     \vspace{0.5cm}
     \begin{center}
         {\Large Thanks for your attention!}
