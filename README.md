@@ -32,4 +32,4 @@ Instructions to use this template:
 
 ## Contributing :construction_worker:
 
-Have a question, found a bug, request a feature, want to contribute? [Please file an issue](https://github.com/loelschlaeger/beamer_biem/issues/new/choose).
+Have a question, found a bug, request a feature, want to contribute? [Please file an issue](https://github.com/loelschlaeger/beamer_biem/issues/new/).
