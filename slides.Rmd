@@ -20,7 +20,7 @@ aspectratio: 169
 
 # define table of contents
 toc: true
-toc-title: "What this talk is about" 
+toc-title: "What this talk is about?" 
 
 # define last slide
 last-slide: true
