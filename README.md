@@ -1,8 +1,8 @@
-
-
 ## Aim :pushpin:
 
 This repository contains a template for [LaTeX beamer slides](https://en.wikipedia.org/wiki/Beamer_(LaTeX)) and [Rmarkdown beamer slides](https://bookdown.org/yihui/rmarkdown/beamer-presentation.html) in corporate design of [Bielefeld University](https://www.uni-bielefeld.de/) and serves as a starting point to create slides for the Empirical Methods Department.
+
+Does the currently version render? ![test](https://github.com/loelschlaeger/beamer_biem/actions/workflows/render.yaml/badge.svg)
 
 ## Preview :eyes:
 
