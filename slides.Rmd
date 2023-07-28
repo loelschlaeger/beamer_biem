@@ -17,8 +17,7 @@ aspectratio: 169
 # set title, presenter, institute, date
 title: "Title"
 subtitle: "Subtitle"
-author: "Presenter"
-author-short: "Presenter"
+author: "\\underline{Presenter} and Contributor"
 institute: "Institute"
 date: "`r Sys.Date()`"
 
