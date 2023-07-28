@@ -38,22 +38,15 @@
   text margin right = 10mm
 }
 
+% Frame title
 \setbeamertemplate{frametitle}[default][left, leftskip = 4cm]
 \addtobeamertemplate{frametitle}{\vspace*{0.5cm}}{\vspace*{0.3cm}}
+\makeatletter
+\patchcmd{\endbeamer@frameslide}{\ifx\beamer@frametitle\@empty}{\iffalse}{}{\errmessage{failed to patch}}
+\makeatother
 
 % Navigation symbols
-\defbeamertemplate*{navigation symbols}{bfeld}
-{%
-  \hbox{%
-    \hbox{\insertslidenavigationsymbol}
-    \hbox{\insertframenavigationsymbol}
-    \hbox{\insertsubsectionnavigationsymbol}
-    \hbox{\insertsectionnavigationsymbol}
-    \hbox{\insertdocnavigationsymbol}
-    \hbox{\insertbackfindforwardnavigationsymbol}%
-  }%
-}
-\only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
+\setbeamertemplate{navigation symbols}{}
 
 % Footline
 \defbeamertemplate*{footline}{bfeld}
@@ -64,7 +57,7 @@
     \usebeamerfont{author in head/foot}\hspace*{3ex}\insertshortauthor~~$|$~~\insertshorttitle
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \usebeamerfont{date in head/foot}
     \insertframenumber{} / \inserttotalframenumber\hspace*{3ex}
   \end{beamercolorbox}
   }%
@@ -99,6 +92,16 @@
 {%
   \ifbeamercolorempty[bg]{sidebar right}{}
   {\color{bg}\vrule height\sidebarheight width\beamer@rightsidebar}%
+}
+
+% Background
+\usebackgroundtemplate{
+  \vbox{ 
+    \vspace{10pt}
+    \begin{tabular}{p{0.01\paperwidth} p{0.78\paperwidth} p{0.2\paperwidth} p{0.01\paperwidth}} 
+      & \vspace{0pt} \includegraphics[width=2.25cm]{theme/logo_unibi.png} & \vspace{0pt} \includegraphics[width=1.75cm]{theme/logo_em.png} &
+  \end{tabular}
+  }
 }
 
 \mode<all>

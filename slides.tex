@@ -1,157 +1,70 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-%
 \documentclass[
-  10pt,
-  ignorenonframetext,
-  aspectratio=169,
-xcolor = dvipsnames
-]{beamer}
-\usepackage{pgfpages}
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{caption label separator}{: }
-\setbeamercolor{caption name}{fg=normal text.fg}
-\beamertemplatenavigationsymbolsempty
-% Prevent slide breaks in the middle of a paragraph
-\widowpenalties 1 10000
-\raggedbottom
-\setbeamertemplate{part page}{
-  \centering
-  \begin{beamercolorbox}[sep=16pt,center]{part title}
-    \usebeamerfont{part title}\insertpart\par
-  \end{beamercolorbox}
-}
-\setbeamertemplate{section page}{
-  \centering
-  \begin{beamercolorbox}[sep=12pt,center]{part title}
-    \usebeamerfont{section title}\insertsection\par
-  \end{beamercolorbox}
-}
-\setbeamertemplate{subsection page}{
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center]{part title}
-    \usebeamerfont{subsection title}\insertsubsection\par
-  \end{beamercolorbox}
-}
-\AtBeginPart{
-  \frame{\partpage}
-}
-\usepackage{amsmath,amssymb}
-\usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\newif\ifbibliography
-\setlength{\emergencystretch}{3em} % prevent overfull lines
+      10pt,
+          aspectratio = 169,
+  ]{beamer}
+
+\input{theme/packages}
+\input{theme/commands}
+
+  \usepackage[no-math]{fontspec}
+  \setmainfont[
+      Path            = ./theme/,
+      Extension       = .otf,
+      Ligatures       = TeX,
+      UprightFont     = *-Regular,
+      ItalicFont      = *-RegularItalic,
+      BoldFont        = *-Bold,
+      BoldItalicFont  = *-BoldItalic
+  ]{Lelo}
+
+  \usepackage{theme/eco_bielefeld}
+
+  \usepackage{emoji}
+
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 
-\usepackage[english]{babel}		
-\usepackage[T1]{fontenc}	
-\usepackage[scaled]{helvet}		
-\usepackage[overlay,absolute]{textpos}	
-\usepackage{amsmath,amssymb}	
+  \title{Title}
 
-\usepackage{fontspec}
-\setmainfont[
-    Path            = ./theme/,
-    Extension       = .otf,
-    Ligatures       = TeX,
-    UprightFont     = *-Regular,
-    ItalicFont      = *-RegularItalic,
-    BoldFont        = *-Bold,
-    BoldItalicFont  = *-BoldItalic
-]{Lelo}
-
-\usepackage{theme/eco_bielefeld}
-\setbeamertemplate{navigation symbols}{}
-
-\usepackage{fontawesome}
-\usepackage{booktabs}		
-\usepackage{xcolor}			     
-\usepackage{hyperref}			
-\usepackage{verbatim}			
-\usepackage{graphicx}			
-\usepackage{subcaption}		
-\usepackage{relsize}			
-\usepackage{natbib}		
-\bibliographystyle{dcu}
-
-\usebackgroundtemplate{
-  \vbox{ 
-    \vspace{10pt}
-    \begin{tabular}{p{0.01\paperwidth} p{0.78\paperwidth} p{0.2\paperwidth} p{0.01\paperwidth}} 
-      & \vspace{0pt} \includegraphics[width=2.25cm]{theme/logo_unibi.png} & \vspace{0pt} \includegraphics[width=1.75cm]{theme/logo_em.png} &
-  \end{tabular}
-  }
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
-
-
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Title},
-  pdfauthor={Presenter},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-
-\title{Title}
+\makeatother
 \subtitle{Subtitle}
-\author{Presenter}
-\date{2023-07-24}
-\institute{Institute}
+
+\author[Presenter]{Presenter}
+
+\date{2023-07-28}
+
+  \institute{Institute}
+
 \AtBeginSection[]
 {
     \begin{frame}
-        \frametitle{What this talk is about?}
+        \frametitle{Outline}
         \tableofcontents[currentsection]
     \end{frame}
 }
 
-\begin{document}
-\begin{frame}[plain]{}
-  \titlepage
-\end{frame}
+\usepackage{fontawesome}
 
-\begin{frame}
-  \frametitle{What this talk is about?}
-  \tableofcontents
-\end{frame}
+\begin{document}
+
+  \begin{frame}[plain]{}
+    \titlepage
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
 \hypertarget{section-1}{%
 \section{Section 1}\label{section-1}}
 
-\begin{frame}[fragile]{Subsection 1.1}
-\protect\hypertarget{subsection-1.1}{}
+\begin{frame}[fragile]{LaTeX Engine}
+\protect\hypertarget{latex-engine}{}
 \begin{itemize}
 \tightlist
 \item
@@ -160,6 +73,7 @@ xcolor = dvipsnames
 \item
   The font is set via \texttt{\textbackslash{}usepackage\{fontspec\}},
   which requires XeLaTeX or LuaLaTeX.
+\item
 \item
   When compiling this template, make sure that either XeLaTeX or
   LuaLaTeX is the selected LaTeX engine.
@@ -208,17 +122,16 @@ xcolor = dvipsnames
 \end{itemize}
 \end{frame}
 
-
-\begin{frame}{}
-    \vspace{0.5cm}
-    \begin{center}
-        {\Large Thanks for your attention!}
-    \end{center}
-    \vfill
-    \begin{itemize}
-      \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
-      \item[\faLaptop] \href{https://example.org/}{https://example.org/}
-    \end{itemize}
-\end{frame}
+  \begin{frame}{}
+      \vspace{0.5cm}
+      \begin{center}
+          {\Large Thanks for your attention!}
+      \end{center}
+      \vfill
+      \begin{itemize}
+        \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
+        \item[\faLaptop] \href{https://example.org/}{https://example.org/}
+      \end{itemize}
+  \end{frame}
 
 \end{document}
