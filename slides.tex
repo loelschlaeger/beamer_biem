@@ -1,30 +1,26 @@
-\documentclass[
-      10pt,
-          aspectratio = 169,
-  ]{beamer}
+\documentclass[10pt,aspectratio = 169,]{beamer}
 
 \input{theme/packages}
 \input{theme/commands}
 
-  \usepackage[no-math]{fontspec}
-  \setmainfont[
-      Path            = ./theme/,
-      Extension       = .otf,
-      Ligatures       = TeX,
-      UprightFont     = *-Regular,
-      ItalicFont      = *-RegularItalic,
-      BoldFont        = *-Bold,
-      BoldItalicFont  = *-BoldItalic
-  ]{Lelo}
+\usepackage[no-math]{fontspec}
+\setmainfont[
+    Path            = ./theme/,
+    Extension       = .otf,
+    Ligatures       = TeX,
+    UprightFont     = *-Regular,
+    ItalicFont      = *-RegularItalic,
+    BoldFont        = *-Bold,
+    BoldItalicFont  = *-BoldItalic
+]{Lelo}
 
-  \usepackage{theme/eco_bielefeld}
+\usepackage{theme/eco_bielefeld}
 
-  \usepackage{emoji}
+\usepackage{emoji}
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-  \title{Title}
+\title{Title}
 
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -33,32 +29,31 @@
 \makeatother
 \subtitle{Subtitle}
 
-\author{\underline{Presenter} and Contributor}
+\author{ \texorpdfstring{\underline{Presenter}}{\underline{Presenter}}  \and  \texorpdfstring{Contributor}{Contributor} }
 
-\date{2023-07-28}
+\date{2023-08-02}
 
-  \institute{Institute}
+\institute{Institute}
 
-\AtBeginSection[]
-{
-    \begin{frame}
-        \frametitle{Outline}
-        \tableofcontents[currentsection]
-    \end{frame}
+\AtBeginSection[]{
+  \begin{frame}
+      \frametitle{Outline}
+      \tableofcontents[currentsection]
+  \end{frame}
 }
 
 \usepackage{fontawesome}
 
 \begin{document}
 
-  \begin{frame}[plain]{}
-    \titlepage
-  \end{frame}
+\begin{frame}[plain]{}
+  \titlepage
+\end{frame}
 
-  \begin{frame}
-    \frametitle{Outline}
-    \tableofcontents
-  \end{frame}
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
 
 \hypertarget{section-1}{%
 \section{Section 1}\label{section-1}}
@@ -122,16 +117,16 @@
 \end{itemize}
 \end{frame}
 
-  \begin{frame}{}
-      \vspace{0.5cm}
-      \begin{center}
-          {\Large Thanks for your attention!}
-      \end{center}
-      \vfill
-      \begin{itemize}
-        \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
-        \item[\faLaptop] \href{https://example.org/}{https://example.org/}
-      \end{itemize}
-  \end{frame}
+\begin{frame}{}
+    \vspace{0.5cm}
+    \begin{center}
+        {\Large Thanks for your attention!}
+    \end{center}
+    \vfill
+    \begin{itemize}
+      \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
+      \item[\faLaptop] \href{https://example.org/}{https://example.org/}
+    \end{itemize}
+\end{frame}
 
 \end{document}

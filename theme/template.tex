@@ -1,44 +1,33 @@
-\documentclass[
-  $if(fontsize)$
-    $fontsize$,
-  $endif$
-  $if(handout)$
-    handout,
-  $endif$
-  $if(aspectratio)$
-    aspectratio = $aspectratio$,
-  $endif$
-]{beamer}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$if(aspectratio)$aspectratio = $aspectratio$,$endif$]{beamer}
 
 \input{theme/packages}
 \input{theme/commands}
 
 $if(unibi-font)$
-  \usepackage[no-math]{fontspec}
-  \setmainfont[
-      Path            = ./theme/,
-      Extension       = .otf,
-      Ligatures       = TeX,
-      UprightFont     = *-Regular,
-      ItalicFont      = *-RegularItalic,
-      BoldFont        = *-Bold,
-      BoldItalicFont  = *-BoldItalic
-  ]{Lelo}
+\usepackage[no-math]{fontspec}
+\setmainfont[
+    Path            = ./theme/,
+    Extension       = .otf,
+    Ligatures       = TeX,
+    UprightFont     = *-Regular,
+    ItalicFont      = *-RegularItalic,
+    BoldFont        = *-Bold,
+    BoldItalicFont  = *-BoldItalic
+]{Lelo}
 $endif$
 
 $if(eco-bielefeld)$
-  \usepackage{theme/eco_bielefeld}
+\usepackage{theme/eco_bielefeld}
 $endif$
 
 $if(emoji)$
-  \usepackage{emoji}
+\usepackage{emoji}
 $endif$
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 $if(title)$
-  \title{$title$}
+\title{$title$}
 $endif$
 
 $if(subtitle)$
@@ -50,20 +39,19 @@ $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
 
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author{$for(author)$ \texorpdfstring{$author$}{$author$} $sep$ \and $endfor$}
 
 \date{$date$}
 
 $if(institute)$
-  \institute{$for(institute)$$institute$$sep$ \and $endfor$}
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
 
-\AtBeginSection[]
-{
-    \begin{frame}
-        \frametitle{$toc-title$}
-        \tableofcontents[currentsection]
-    \end{frame}
+\AtBeginSection[]{
+  \begin{frame}
+      \frametitle{$toc-title$}
+      \tableofcontents[currentsection]
+  \end{frame}
 }
 
 $if(last-slide)$
@@ -73,32 +61,32 @@ $endif$
 \begin{document}
 
 $if(title)$
-  \begin{frame}[plain]{}
-    \titlepage
-  \end{frame}
+\begin{frame}[plain]{}
+  \titlepage
+\end{frame}
 $endif$
 
 $if(toc)$
-  \begin{frame}
-    \frametitle{$toc-title$}
-    \tableofcontents
-  \end{frame}
+\begin{frame}
+  \frametitle{$toc-title$}
+  \tableofcontents
+\end{frame}
 $endif$
 
 $body$
 
 $if(last-slide)$
-  \begin{frame}{}
-      \vspace{0.5cm}
-      \begin{center}
-          {\Large Thanks for your attention!}
-      \end{center}
-      \vfill
-      \begin{itemize}
-        \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
-        \item[\faLaptop] \href{https://example.org/}{https://example.org/}
-      \end{itemize}
-  \end{frame}
+\begin{frame}{}
+    \vspace{0.5cm}
+    \begin{center}
+        {\Large Thanks for your attention!}
+    \end{center}
+    \vfill
+    \begin{itemize}
+      \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
+      \item[\faLaptop] \href{https://example.org/}{https://example.org/}
+    \end{itemize}
+\end{frame}
 $endif$
 
 \end{document}
