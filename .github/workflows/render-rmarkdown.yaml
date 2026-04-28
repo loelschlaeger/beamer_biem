@@ -1,9 +1,6 @@
 name: Render slides PDF
 
-on:
-  push:
-    paths:
-      - "slides.Rmd"
+on: push
 
 permissions:
   contents: write
