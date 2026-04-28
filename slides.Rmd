@@ -21,7 +21,7 @@ author:
 - \underline{Presenter}
 - Contributor
 institute: "Institute"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(), '%d.%m.%Y')`"
 
 # define table of contents
 toc: true
