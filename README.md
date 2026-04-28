@@ -8,17 +8,13 @@ See [here](https://github.com/loelschlaeger/slides_template/blob/master/slides.p
 
 ## Using this template :pencil2:
 
-Instructions to use this template:
-
 1. Either
    
    - click ["Use this template"](https://github.com/loelschlaeger/slides_template/generate)
    
    - or download and unzip the repository (e.g., via [DownGit](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/loelschlaeger/slides_template/tree/master)).
-   
-2. Read the instructions in `slides.pdf`.
     
-3. Either
+2. Either
    
    - open and modify `slides.Rmd` (e.g., in [RStudio](https://posit.co/download/rstudio-desktop/)) and run `rmarkdown::render("slides.Rmd")`
    
