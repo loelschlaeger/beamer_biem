@@ -1,12 +1,10 @@
-% Keep class options on one logical line so pandoc conditionals do not
-% introduce paragraph breaks in \documentclass options.
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$]{beamer}
 
-% Core packages and local helper commands
+% load packages and helper commands
 \input{theme/packages}
 \input{theme/commands}
 
-% Optional university font (requires LuaLaTeX or XeLaTeX)
+% Uni BI font (needs LaTeX engine xelatex or lualatex)
 $if(unibi-font)$
 \usepackage[no-math]{fontspec}
 \setmainfont[
@@ -20,27 +18,17 @@ $if(unibi-font)$
 ]{Lelo}
 $endif$
 
-% Optional local Beamer style
-$if(eco-bielefeld)$
+% Eco Uni BI beamer style
 \usepackage{theme/eco_bielefeld}
-$endif$
 
 % for code blocks
 $if(highlighting-macros)$
   $highlighting-macros$
 $endif$ 
 
-% Optional emoji support
-$if(emoji)$
-\usepackage{emoji}
-$endif$
-
-% Pandoc helper for tight markdown lists
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% Metadata fields (all optional)
+% metadata fields
 $if(title)$
-\title{$title$}
+\title$if(short-title)$[$short-title$]$endif${$title$}
 $endif$
 
 $if(subtitle)$
@@ -59,16 +47,7 @@ $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
 
-% ---- Navigation helpers ----------------------------------------------------
-% Use with labels created by \hypertarget{<label>}{} inside a frame.
-\newcommand{\appendixbutton}[2]{\hyperlink{#1}{\beamerbutton{#2}}}
-\newcommand{\returnbutton}[2]{\hyperlink{#1}{\beamergotobutton{#2}}}
-
-% Slightly rounder button shapes for a friendlier look
-% (single optional argument keeps compatibility across beamer versions)
-\setbeamertemplate{button}[rounded]
-
-% ---- Section / TOC behavior ------------------------------------------------
+% section behavior
 $if(toc)$
 $if(toc-title)$
 \newcommand{\biemtocname}{$toc-title$}
@@ -84,10 +63,7 @@ $endif$
 }
 $endif$
 
-$if(last-slide)$
-\usepackage{fontawesome}
-$endif$
-
+% start content
 \begin{document}
 
 $if(title)$
@@ -106,20 +82,30 @@ $endif$
 $body$
 
 $if(last-slide)$
-\begin{frame}{}
+\begin{frame}[fragile]{}
   \vspace{0.5cm}
+
   \begin{center}
-    {\Large $if(last-slide-title)$$last-slide-title$$else$Thanks for your attention!$endif$}
+    {\Large $if(last-slide-message)$$last-slide-message$$else$Thanks for your attention!$endif$}
   \end{center}
+
   \vfill
-  \begin{itemize}
+
 $if(last-slide-email)$
-    \item[\faEnvelope] \href{mailto:$last-slide-email$}{$last-slide-email$}
-$endif$
+  \begin{itemize}
+    \item[{\protect\faEnvelope}] $last-slide-email$
 $if(last-slide-website)$
-    \item[\faLaptop] \href{$last-slide-website$}{$last-slide-website$}
+    \item[{\protect\faLaptop}] $last-slide-website$
 $endif$
   \end{itemize}
+$else$
+$if(last-slide-website)$
+  \begin{itemize}
+    \item[{\protect\faLaptop}] $last-slide-website$
+  \end{itemize}
+$endif$
+$endif$
+
 \end{frame}
 $endif$
 
