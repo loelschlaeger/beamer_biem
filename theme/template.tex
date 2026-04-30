@@ -66,7 +66,8 @@ $endif$
 \newcommand{\returnbutton}[2]{\hyperlink{#1}{\beamergotobutton{#2}}}
 
 % Slightly rounder button shapes for a friendlier look
-\setbeamertemplate{button}[rounded][shadow=false]
+% (single optional argument keeps compatibility across beamer versions)
+\setbeamertemplate{button}[rounded]
 
 % ---- Section / TOC behavior ------------------------------------------------
 $if(toc)$
