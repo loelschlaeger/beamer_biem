@@ -1,8 +1,6 @@
-\documentclass[
-$if(fontsize)$$fontsize$,$endif$
-$if(handout)$handout,$endif$
-$if(aspectratio)$aspectratio=$aspectratio$,$endif$
-]{beamer}
+% Keep class options on one logical line so pandoc conditionals do not
+% introduce paragraph breaks in \documentclass options.
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$]{beamer}
 
 % Core packages and local helper commands
 \input{theme/packages}
