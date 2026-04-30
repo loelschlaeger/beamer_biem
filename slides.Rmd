@@ -15,12 +15,12 @@ handout: false
 aspectratio: 169
 
 # set title, presenter, institute, date
-title: "Reusable Beamer + R Markdown Template"
-subtitle: "Demonstration deck"
+title: "Title of Presentation"
+subtitle: "Subtitle"
 author:
 - \underline{Presenter Name}
 - Contributor Name
-institute: "Institute / Team"
+institute: "Institute"
 date: "`r format(Sys.Date(), '%d.%m.%Y')`"
 
 # define table of contents
@@ -38,12 +38,6 @@ knitr::opts_chunk$set(
   fig.path = "figures/"
 )
 ```
-
-<!--
-This file is both a demo and a starting point.
-Edit content sections, keep the YAML header, and render with:
-rmarkdown::render("slides.Rmd")
--->
 
 # Introduction
 
