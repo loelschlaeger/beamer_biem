@@ -115,12 +115,16 @@ $if(last-slide)$
 \begin{frame}{}
   \vspace{0.5cm}
   \begin{center}
-    {\Large Thanks for your attention!}
+    {\Large $if(last-slide-title)$$last-slide-title$$else$Thanks for your attention!$endif$}
   \end{center}
   \vfill
   \begin{itemize}
-    \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
-    \item[\faLaptop] \href{https://example.org/}{https://example.org/}
+$if(last-slide-email)$
+    \item[\faEnvelope] \href{mailto:$last-slide-email$}{$last-slide-email$}
+$endif$
+$if(last-slide-website)$
+    \item[\faLaptop] \href{$last-slide-website$}{$last-slide-website$}
+$endif$
   \end{itemize}
 \end{frame}
 $endif$
