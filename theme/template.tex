@@ -39,12 +39,6 @@ $if(title)$
 $endif$
 
 $if(subtitle)$
-\makeatletter
-\providecommand{\subtitle}[1]{%
-  % Add subtitle support even if the loaded theme does not define \subtitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
 \subtitle{$subtitle$}
 $endif$
 
