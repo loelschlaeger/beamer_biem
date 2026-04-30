@@ -1,8 +1,14 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$if(aspectratio)$aspectratio = $aspectratio$,$endif$]{beamer}
+\documentclass[
+$if(fontsize)$$fontsize$,$endif$
+$if(handout)$handout,$endif$
+$if(aspectratio)$aspectratio=$aspectratio$,$endif$
+]{beamer}
 
+% Core packages and local helper commands
 \input{theme/packages}
 \input{theme/commands}
 
+% Optional university font (requires LuaLaTeX or XeLaTeX)
 $if(unibi-font)$
 \usepackage[no-math]{fontspec}
 \setmainfont[
@@ -16,43 +22,69 @@ $if(unibi-font)$
 ]{Lelo}
 $endif$
 
+% Optional local Beamer style
 $if(eco-bielefeld)$
 \usepackage{theme/eco_bielefeld}
 $endif$
 
+% Optional emoji support
 $if(emoji)$
 \usepackage{emoji}
 $endif$
 
+% Pandoc helper for tight markdown lists
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% Metadata fields (all optional)
 $if(title)$
 \title{$title$}
 $endif$
 
 $if(subtitle)$
 \makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+\providecommand{\subtitle}[1]{%
+  % Add subtitle support even if the loaded theme does not define \subtitle
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
 \subtitle{$subtitle$}
 $endif$
 
-\author{$for(author)$ \texorpdfstring{$author$}{$author$} $sep$ \and $endfor$}
+$if(author)$
+\author{$for(author)$\texorpdfstring{$author$}{$author$}$sep$ \and $endfor$}
+$endif$
 
+$if(date)$
 \date{$date$}
+$endif$
 
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
 
+% ---- Navigation helpers ----------------------------------------------------
+% Use with labels created by \hypertarget{<label>}{} inside a frame.
+\newcommand{\appendixbutton}[2]{\hyperlink{#1}{\beamerbutton{#2}}}
+\newcommand{\returnbutton}[2]{\hyperlink{#1}{\beamergotobutton{#2}}}
+
+% Slightly rounder button shapes for a friendlier look
+\setbeamertemplate{button}[rounded][shadow=false]
+
+% ---- Section / TOC behavior ------------------------------------------------
+$if(toc)$
+$if(toc-title)$
+\newcommand{\biemtocname}{$toc-title$}
+$else$
+\newcommand{\biemtocname}{Outline}
+$endif$
+
 \AtBeginSection[]{
   \begin{frame}
-      \frametitle{$toc-title$}
-      \tableofcontents[currentsection]
+    \frametitle{\biemtocname}
+    \tableofcontents[currentsection]
   \end{frame}
 }
+$endif$
 
 $if(last-slide)$
 \usepackage{fontawesome}
@@ -68,7 +100,7 @@ $endif$
 
 $if(toc)$
 \begin{frame}
-  \frametitle{$toc-title$}
+  \frametitle{\biemtocname}
   \tableofcontents
 \end{frame}
 $endif$
@@ -77,15 +109,15 @@ $body$
 
 $if(last-slide)$
 \begin{frame}{}
-    \vspace{0.5cm}
-    \begin{center}
-        {\Large Thanks for your attention!}
-    \end{center}
-    \vfill
-    \begin{itemize}
-      \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
-      \item[\faLaptop] \href{https://example.org/}{https://example.org/}
-    \end{itemize}
+  \vspace{0.5cm}
+  \begin{center}
+    {\Large Thanks for your attention!}
+  \end{center}
+  \vfill
+  \begin{itemize}
+    \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
+    \item[\faLaptop] \href{https://example.org/}{https://example.org/}
+  \end{itemize}
 \end{frame}
 $endif$
 

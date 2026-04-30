@@ -5,7 +5,7 @@ output:
     template: theme/template.tex
     latex_engine: lualatex
     keep_tex: true
-    
+
 # set theme
 eco-bielefeld: true
 unibi-font: true
@@ -15,18 +15,18 @@ handout: false
 aspectratio: 169
 
 # set title, presenter, institute, date
-title: "Title"
-subtitle: "Subtitle"
-author: 
-- \underline{Presenter}
-- Contributor
-institute: "Institute"
+title: "Reusable Beamer + R Markdown Template"
+subtitle: "Demonstration deck"
+author:
+- \underline{Presenter Name}
+- Contributor Name
+institute: "Institute / Team"
 date: "`r format(Sys.Date(), '%d.%m.%Y')`"
 
 # define table of contents
 toc: true
 toc-depth: 1
-toc-title: "Outline" 
+toc-title: "Outline"
 
 # define last slide
 last-slide: true
@@ -34,39 +34,176 @@ last-slide: true
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  out.height = "70%",
-  fig.path   = "figures/"
-) 
+  out.height = "65%",
+  fig.path = "figures/"
+)
 ```
 
-# Section 1
+<!--
+This file is both a demo and a starting point.
+Edit content sections, keep the YAML header, and render with:
+rmarkdown::render("slides.Rmd")
+-->
 
-## LaTeX Engine
+# Introduction
 
-- This template uses the [Lelo font](https://camelot-typefaces.com/lelo).
-- The font is set via `\usepackage{fontspec}`, which requires XeLaTeX or LuaLaTeX.
-- 
-- When compiling this template, make sure that either XeLaTeX or LuaLaTeX is the selected LaTeX engine.
+## Welcome
 
-## Subsection 1.2
+This template is designed for professional Beamer slides built from R Markdown.
 
-- Eat eggs
-- Drink coffee
+- Consistent visual style (Bielefeld theme)
+- Native support for R plots, tables, and code chunks
+- Useful helper commands for appendix navigation
 
-# Section 2
+\small Tip: Use section headers (`#`) to create TOC entries and divider slides.
 
-## Subsection 2.1
+## Agenda
 
-- Eat spaghetti
-- Drink wine
+- Context and goals
+- Content building blocks
+- Appendix navigation buttons
+- Backup slides
 
----
+# Content examples
 
-```{r, cars, fig.cap = "A scatterplot.", echo = FALSE}
-plot(cars)
+## Standard text slide
+
+A good slide keeps one main message and a few supporting points.
+
+- Put the headline in the title
+- Use short phrases (not paragraphs)
+- Explain details verbally while presenting
+
+## Bullet lists and nested bullets
+
+- Project status
+  - Data collection complete
+  - First model version validated
+  - Draft report in preparation
+- Next milestone: stakeholder review
+
+## Two-column layout
+
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.52\textwidth}
+### Key points
+
+- Left column for narrative
+- Good for side-by-side comparisons
+- Keeps dense content readable
+
+\column{0.46\textwidth}
+### Snapshot
+
+\begin{block}{KPI summary}
+\begin{itemize}
+  \item Conversion: 7.9\%
+  \item Retention: 84\%
+  \item Revenue growth: +12\%
+\end{itemize}
+\end{block}
+\end{columns}
+
+## Image example
+
+Use figures from chunks or include external files directly.
+
+```{r, cars_plot, echo = FALSE, fig.cap = "Base R example plot from `cars`."}
+plot(cars, pch = 19, col = "steelblue")
+abline(lm(dist ~ speed, data = cars), col = "firebrick", lwd = 2)
 ```
 
-## Subsection 2.2
+## Table example
 
-- Get in bed
-- Count sheep
+```{r, echo=FALSE}
+knitr::kable(
+  data.frame(
+    Scenario = c("Baseline", "Pilot", "Target"),
+    Cost = c(100, 115, 120),
+    Impact = c("-", "+6%", "+10%")
+  ),
+  align = c("l", "r", "r"),
+  caption = "Illustrative planning table"
+)
+```
+
+## Code block example
+
+```r
+library(dplyr)
+
+summary_tbl <- sales_df %>%
+  group_by(region) %>%
+  summarise(avg_revenue = mean(revenue, na.rm = TRUE))
+```
+
+## Mathematical notation
+
+For model documentation or methods slides:
+
+$$
+\hat{\beta} = (X^\top X)^{-1}X^\top y, \qquad
+\E[Y \mid X] = X\beta
+$$
+
+\small You can use inline math too, e.g. $\alpha \in \R$.
+
+## Quote / highlight
+
+\begin{quote}
+"Good slides support a story; they should not compete with it."
+\end{quote}
+
+\begin{exampleblock}{Practical suggestion}
+Move technical derivations to the appendix and link them with a button.
+\end{exampleblock}
+
+## Blocks: alert, example, standard
+
+\begin{block}{Block}
+Use for neutral structure.
+\end{block}
+
+\begin{exampleblock}{Example block}
+Use for positive or recommended actions.
+\end{exampleblock}
+
+\begin{alertblock}{Alert block}
+Use for risks, caveats, or assumptions.
+\end{alertblock}
+
+## Footnote and small reference text
+
+Main takeaway: assumptions must be explicit.\footnote{Illustrative footnote text for template users.}
+
+\vspace{0.5em}
+{\scriptsize Reference: Doe, J. (2025). *Practical Presentation Design*.}
+
+# Appendix navigation demo
+
+## Main slide with appendix button
+\hypertarget{main_results_slide}{}
+
+This slide links to a detailed backup slide.
+
+- Keep main message here
+- Move technical detail to appendix
+
+\appendixbutton{backup_model_details}{Details in appendix}
+
+## Another content slide
+
+Continue with your regular narrative after adding a button-based detour.
+
+# Appendix
+
+## Backup: model details
+\hypertarget{backup_model_details}{}
+
+Additional diagnostics and assumptions can live here.
+
+- Residual checks passed
+- Sensitivity tested for two alternative specifications
+- Full output available on request
+
+\returnbutton{main_results_slide}{Back to main slide}
