@@ -16,3 +16,18 @@
 \newcommand{\se}{\operatorname{se}}
 \newcommand{\mean}{\operatorname{mean}}
 \newcommand{\Prob}{\operatorname{Prob}}
+
+% Pandoc helper for tight markdown lists
+\providecommand{\tightlist}{\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}}
+
+% navigation (use with labels created by \hypertarget{<label>}{} inside a frame)
+\newcommand{\appendixbutton}[2]{\hfill\hyperlink{#1}{\beamergotobutton{#2}}}
+\newcommand{\overviewbutton}[2]{\hfill\hyperlink{#1}{\whitebutton{#2}}}
+\newcommand{\returnbutton}[2]{\hfill\hyperlink{#1}{\beamergotobutton{#2}}}
+\newcommand{\whitebutton}[1]{%
+  \tikz[baseline=(b.base)]\node[
+    draw=black, fill=white, rounded corners=2pt,
+    minimum width=3cm, minimum height=2em,
+    inner sep=0pt, align=center
+  ] (b) {\color{black}\strut #1};%
+}

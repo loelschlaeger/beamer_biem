@@ -1,8 +1,10 @@
-\documentclass[10pt,aspectratio = 169,]{beamer}
+\documentclass[10pt,aspectratio=169,]{beamer}
 
+% load packages and helper commands
 \input{theme/packages}
 \input{theme/commands}
 
+% Uni BI font (needs LaTeX engine xelatex or lualatex)
 \usepackage[no-math]{fontspec}
 \setmainfont[
     Path            = ./theme/,
@@ -14,36 +16,75 @@
     BoldItalicFont  = *-BoldItalic
 ]{Lelo}
 
+% Eco Uni BI beamer style
 \usepackage{theme/eco_bielefeld}
 
-\usepackage{emoji}
+% for code blocks
+  \usepackage{color}
+  \usepackage{fancyvrb}
+  \newcommand{\VerbBar}{|}
+  \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+  % Add ',fontsize=\small' for more characters per line
+  \usepackage{framed}
+  \definecolor{shadecolor}{RGB}{248,248,248}
+  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+  \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+  \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+  \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\BuiltInTok}[1]{#1}
+  \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+  \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+  \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+  \newcommand{\ExtensionTok}[1]{#1}
+  \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\ImportTok}[1]{#1}
+  \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\NormalTok}[1]{#1}
+  \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+  \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+  \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\RegionMarkerTok}[1]{#1}
+  \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+  \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+ 
 
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% metadata fields
+\title[Short Title]{Title of Presentation}
 
-\title{Title}
-
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
 \subtitle{Subtitle}
 
-\author{ \texorpdfstring{\underline{Presenter}}{\underline{Presenter}}  \and  \texorpdfstring{Contributor}{Contributor} }
+\author{\texorpdfstring{\underline{Presenter Name}}{\underline{Presenter Name}} \and \texorpdfstring{Contributor
+Name}{Contributor Name}}
 
-\date{2026-04-28}
+\date{30 April 2026}
 
-\institute{Institute}
+\institute{Bielefeld University, Department Empirical Methods}
+
+% section behavior
+\newcommand{\biemtocname}{Outline}
 
 \AtBeginSection[]{
   \begin{frame}
-      \frametitle{Outline}
-      \tableofcontents[currentsection]
+    \frametitle{\biemtocname}
+    \tableofcontents[currentsection]
   \end{frame}
 }
 
-\usepackage{fontawesome}
-
+% start content
 \begin{document}
 
 \begin{frame}[plain]{}
@@ -51,80 +92,202 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Outline}
+  \frametitle{\biemtocname}
   \tableofcontents
 \end{frame}
 
-\section{Section 1}\label{section-1}
+\section{Introduction}\label{introduction}
 
-\begin{frame}[fragile]{LaTeX Engine}
-\phantomsection\label{latex-engine}
+\begin{frame}{Welcome}
+\phantomsection\label{welcome}
+This template is designed for Beamer slides built from R Markdown.
+
+\vskip 1em
+
+It follows a Bielefeld University / Empirical Methods theme.
+
+\vskip 1em
+
+Feel free to use it at your own risk.
+\end{frame}
+
+\section{Content Examples}\label{content-examples}
+
+\begin{frame}{Buttons, Columns, Lists, Tables}
+\phantomsection\label{buttons-columns-lists-tables}
+\hypertarget{buttons_slide}{}
+
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.3\textwidth}
+Left
+
+\hfill
+
+\column{0.3\textwidth}
+Middle
+
+\hfill
+
+\column{0.3\textwidth}
+Right
+
+\end{columns}
+
+\vfill
+
+This slide links to a detailed backup slide.
+
+\appendixbutton{backup_column_details}{Details}
+
 \begin{itemize}
 \tightlist
 \item
-  This template uses the \href{https://camelot-typefaces.com/lelo}{Lelo
-  font}.
+  Idea:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    keep main message here
+  \item
+    move technical detail to appendix
+  \end{itemize}
 \item
-  The font is set via \texttt{\textbackslash{}usepackage\{fontspec\}},
-  which requires XeLaTeX or LuaLaTeX.
-\item
-\item
-  When compiling this template, make sure that either XeLaTeX or
-  LuaLaTeX is the selected LaTeX engine.
+  You can also click the topleft logo to jump to appendix
 \end{itemize}
+
+\vfill
+
+\begin{longtable}[]{@{}lrr@{}}
+\toprule\noalign{}
+Scenario & Cost & Impact \\
+\midrule\noalign{}
+\endhead
+Baseline & 100 & \\
+Pilot & 115 & +6 \% \\
+Target & 120 & +10 \% \\
+\bottomrule\noalign{}
+\end{longtable}
 \end{frame}
 
-\begin{frame}{Subsection 1.2}
-\phantomsection\label{subsection-1.2}
-\begin{itemize}
-\tightlist
-\item
-  Eat eggs
-\item
-  Drink coffee
-\end{itemize}
+\begin{frame}[fragile]{\lang{R}~Code and Output}
+\phantomsection\label{code-and-output}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starwars }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(name, species, homeworld) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{print}\NormalTok{(}\AttributeTok{n =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 87 x 3
+##   name           species homeworld
+##   <chr>          <chr>   <chr>    
+## 1 Luke Skywalker Human   Tatooine 
+## 2 C-3PO          Droid   Tatooine 
+## 3 R2-D2          Droid   Naboo    
+## # i 84 more rows
+\end{verbatim}
 \end{frame}
 
-\section{Section 2}\label{section-2}
-
-\begin{frame}{Subsection 2.1}
-\phantomsection\label{subsection-2.1}
-\begin{itemize}
-\tightlist
-\item
-  Eat spaghetti
-\item
-  Drink wine
-\end{itemize}
-\end{frame}
-
-\begin{frame}
+\begin{frame}{Images from \lang{R}~Code}
+\phantomsection\label{images-from-code}
 \begin{figure}
-\includegraphics[height=0.7\textheight]{figures/cars-1} \caption{A scatterplot.}\label{fig:cars}
+\includegraphics[height=0.65\textheight]{figures/starwars-1} \caption{Species in Star Wars}\label{fig:starwars}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Subsection 2.2}
-\phantomsection\label{subsection-2.2}
-\begin{itemize}
-\tightlist
-\item
-  Get in bed
-\item
-  Count sheep
-\end{itemize}
+\begin{frame}{External Images}
+\phantomsection\label{external-images}
+\begin{center}
+\includegraphics[width=0.8\textheight]{figures/approx.pdf}
+\end{center}
 \end{frame}
 
-\begin{frame}{}
-    \vspace{0.5cm}
-    \begin{center}
-        {\Large Thanks for your attention!}
-    \end{center}
-    \vfill
-    \begin{itemize}
-      \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
-      \item[\faLaptop] \href{https://example.org/}{https://example.org/}
-    \end{itemize}
+\begin{frame}{Math and Footnotes}
+\phantomsection\label{math-and-footnotes}
+You can use
+\LaTeX~equations:\footnote{The expectation operator $\E$ is a makro, see the file theme/commands.tex for more.}
+
+\[\hat{\beta} = (X^\top X)^{-1}X^\top y, \qquad \E(Y \mid X) = X\beta\]
+
+You can use inline math too, e.g.~\(\alpha \in \R\).
+\end{frame}
+
+\begin{frame}{Quotes and Blocks}
+\phantomsection\label{quotes-and-blocks}
+\begin{quote}
+"Without data, you’re just another person with an opinion." -- W. Edwards Deming
+\end{quote}
+
+\begin{block}{Title}
+Use for neutral structure.
+\end{block}
+
+\begin{exampleblock}{Title}
+Use for examples or recommended actions.
+\end{exampleblock}
+
+\begin{alertblock}{Title}
+Use for caveats.
+\end{alertblock}
+\end{frame}
+
+\section{Appendix}\label{appendix}
+
+\begin{frame}{Appendix}
+\hypertarget{appendix}{}
+
+The start of the backup slides. You can provide an overview here:
+
+\vfill
+
+\begin{tabular}{p{2cm}p{2cm}}
+  \overviewbutton{backup_column_details}{Column details}
+\end{tabular}
+\end{frame}
+
+\begin{frame}{More details on columns}
+\phantomsection\label{more-details-on-columns}
+\hypertarget{backup_column_details}{}
+
+If you want to use lists within columns, you need to explicitly use the
+\code{itemize} environment:
+
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.4\textwidth}
+\begin{itemize}
+  \item this
+  \item works
+  \item well
+\end{itemize}
+
+\hfill
+
+\column{0.4\textwidth}
+- this
+- does
+- not
+- work
+\end{columns}
+
+\returnbutton{buttons_slide}{Return}
+\end{frame}
+
+\begin{frame}[fragile]{}
+  \vspace{0.5cm}
+
+  \begin{center}
+    {\Large Thanks for your attention!}
+  \end{center}
+
+  \vfill
+
+  \begin{itemize}
+    \item[{\protect\faEnvelope}] \href{mailto:name@example.com}{\nolinkurl{name@example.com}}
+    \item[{\protect\faLaptop}] \url{https://example.com}
+  \end{itemize}
+
 \end{frame}
 
 \end{document}

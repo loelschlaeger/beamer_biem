@@ -1,8 +1,10 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$if(aspectratio)$aspectratio = $aspectratio$,$endif$]{beamer}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$]{beamer}
 
+% load packages and helper commands
 \input{theme/packages}
 \input{theme/commands}
 
+% Uni BI font (needs LaTeX engine xelatex or lualatex)
 $if(unibi-font)$
 \usepackage[no-math]{fontspec}
 \setmainfont[
@@ -16,48 +18,52 @@ $if(unibi-font)$
 ]{Lelo}
 $endif$
 
-$if(eco-bielefeld)$
+% Eco Uni BI beamer style
 \usepackage{theme/eco_bielefeld}
-$endif$
 
-$if(emoji)$
-\usepackage{emoji}
-$endif$
+% for code blocks
+$if(highlighting-macros)$
+  $highlighting-macros$
+$endif$ 
 
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
+% metadata fields
 $if(title)$
-\title{$title$}
+\title$if(short-title)$[$short-title$]$endif${$title$}
 $endif$
 
 $if(subtitle)$
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
 \subtitle{$subtitle$}
 $endif$
 
-\author{$for(author)$ \texorpdfstring{$author$}{$author$} $sep$ \and $endfor$}
+$if(author)$
+\author{$for(author)$\texorpdfstring{$author$}{$author$}$sep$ \and $endfor$}
+$endif$
 
+$if(date)$
 \date{$date$}
+$endif$
 
 $if(institute)$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
 
-\AtBeginSection[]{
-  \begin{frame}
-      \frametitle{$toc-title$}
-      \tableofcontents[currentsection]
-  \end{frame}
-}
-
-$if(last-slide)$
-\usepackage{fontawesome}
+% section behavior
+$if(toc)$
+$if(toc-title)$
+\newcommand{\biemtocname}{$toc-title$}
+$else$
+\newcommand{\biemtocname}{Outline}
 $endif$
 
+\AtBeginSection[]{
+  \begin{frame}
+    \frametitle{\biemtocname}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+$endif$
+
+% start content
 \begin{document}
 
 $if(title)$
@@ -68,7 +74,7 @@ $endif$
 
 $if(toc)$
 \begin{frame}
-  \frametitle{$toc-title$}
+  \frametitle{\biemtocname}
   \tableofcontents
 \end{frame}
 $endif$
@@ -76,16 +82,30 @@ $endif$
 $body$
 
 $if(last-slide)$
-\begin{frame}{}
-    \vspace{0.5cm}
-    \begin{center}
-        {\Large Thanks for your attention!}
-    \end{center}
-    \vfill
-    \begin{itemize}
-      \item[\faEnvelope] \href{mailto:someone@example.com}{someone@example.com} \\
-      \item[\faLaptop] \href{https://example.org/}{https://example.org/}
-    \end{itemize}
+\begin{frame}[fragile]{}
+  \vspace{0.5cm}
+
+  \begin{center}
+    {\Large $if(last-slide-message)$$last-slide-message$$else$Thanks for your attention!$endif$}
+  \end{center}
+
+  \vfill
+
+$if(last-slide-email)$
+  \begin{itemize}
+    \item[{\protect\faEnvelope}] $last-slide-email$
+$if(last-slide-website)$
+    \item[{\protect\faLaptop}] $last-slide-website$
+$endif$
+  \end{itemize}
+$else$
+$if(last-slide-website)$
+  \begin{itemize}
+    \item[{\protect\faLaptop}] $last-slide-website$
+  \end{itemize}
+$endif$
+$endif$
+
 \end{frame}
 $endif$
 

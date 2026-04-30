@@ -1,72 +1,187 @@
 ---
 output: 
   beamer_presentation:
-    slide_level: 2
-    template: theme/template.tex
-    latex_engine: lualatex
-    keep_tex: true
-    
+    slide_level: 2               # level-1 heading are sections, level-2 frames
+    template: theme/template.tex # location of template file
+    latex_engine: lualatex       # or pdflatex, xelatex
+    keep_tex: true               # keep .tex file for debugging
+
 # set theme
-eco-bielefeld: true
 unibi-font: true
-emoji: true
 fontsize: 10pt
 handout: false
 aspectratio: 169
 
 # set title, presenter, institute, date
-title: "Title"
+title: "Title of Presentation"
+short-title: "Short Title"
 subtitle: "Subtitle"
-author: 
-- \underline{Presenter}
-- Contributor
-institute: "Institute"
-date: "`r format(Sys.Date(), '%d.%m.%Y')`"
+author:
+- \underline{Presenter Name}
+- Contributor Name
+institute: "Bielefeld University, Department Empirical Methods"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 
 # define table of contents
 toc: true
 toc-depth: 1
-toc-title: "Outline" 
+toc-title: "Outline"
 
 # define last slide
 last-slide: true
+last-slide-message: "Thanks for your attention!"
+last-slide-email: name@example.com
+last-slide-website: https://example.com
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  out.height = "70%",
-  fig.path   = "figures/"
-) 
+  out.height = "65%",
+  fig.path = "figures/"
+)
+
+library("tidyverse")
 ```
 
-# Section 1
+# Introduction
 
-## LaTeX Engine
+## Welcome
 
-- This template uses the [Lelo font](https://camelot-typefaces.com/lelo).
-- The font is set via `\usepackage{fontspec}`, which requires XeLaTeX or LuaLaTeX.
-- 
-- When compiling this template, make sure that either XeLaTeX or LuaLaTeX is the selected LaTeX engine.
+This template is designed for Beamer slides built from R Markdown. 
 
-## Subsection 1.2
+\vskip 1em
 
-- Eat eggs
-- Drink coffee
+It follows a Bielefeld University / Empirical Methods theme.
 
-# Section 2
+\vskip 1em
 
-## Subsection 2.1
+Feel free to use it at your own risk.
 
-- Eat spaghetti
-- Drink wine
+# Content Examples
 
----
+## Buttons, Columns, Lists, Tables
 
-```{r, cars, fig.cap = "A scatterplot.", echo = FALSE}
-plot(cars)
+\hypertarget{buttons_slide}{}
+
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.3\textwidth}
+Left
+
+\hfill
+
+\column{0.3\textwidth}
+Middle
+
+\hfill
+
+\column{0.3\textwidth}
+Right
+
+\end{columns}
+
+\vfill
+
+This slide links to a detailed backup slide. 
+
+\appendixbutton{backup_column_details}{Details}
+
+- Idea:
+  - keep main message here
+  - move technical detail to appendix
+- You can also click the topleft logo to jump to appendix
+
+\vfill
+
+| Scenario | Cost | Impact |
+|:---------|-----:|-------:|
+| Baseline | 100  |        |
+| Pilot    | 115  |  +6 \% |
+| Target   | 120  | +10 \% |
+
+## \lang{R}\ Code and Output
+
+```{r}
+starwars |>
+  select(name, species, homeworld) |>
+  print(n = 3)
 ```
 
-## Subsection 2.2
+## Images from \lang{R}\ Code
 
-- Get in bed
-- Count sheep
+```{r, starwars, echo = FALSE, fig.cap = "Species in Star Wars"}
+starwars |>
+  count(species, sort = TRUE) |>
+  filter(!is.na(species)) |>
+  ggplot(aes(x = reorder(species, n), y = n)) +
+    geom_col() +
+    coord_flip() +
+    labs(x = "Species", y = "Count")
+```
+
+## External Images
+
+\begin{center}
+\includegraphics[width=0.8\textheight]{figures/approx.pdf}
+\end{center}
+
+## Math and Footnotes
+
+You can use \LaTeX\ equations:\footnote{The expectation operator $\E$ is a makro, see the file theme/commands.tex for more.}
+
+$$\hat{\beta} = (X^\top X)^{-1}X^\top y, \qquad \E(Y \mid X) = X\beta$$
+
+You can use inline math too, e.g. $\alpha \in \R$.
+
+## Quotes and Blocks
+
+\begin{quote}
+"Without data, you’re just another person with an opinion." -- W. Edwards Deming
+\end{quote}
+
+\begin{block}{Title}
+Use for neutral structure.
+\end{block}
+
+\begin{exampleblock}{Title}
+Use for examples or recommended actions.
+\end{exampleblock}
+
+\begin{alertblock}{Title}
+Use for caveats.
+\end{alertblock}
+
+
+# Appendix
+\hypertarget{appendix}{}
+
+The start of the backup slides. You can provide an overview here:
+
+\vfill
+
+\begin{tabular}{p{2cm}p{2cm}}
+  \overviewbutton{backup_column_details}{Column details}
+\end{tabular}
+
+## More details on columns
+\hypertarget{backup_column_details}{}
+
+If you want to use lists within columns, you need to explicitly use the \code{itemize} environment:
+
+\begin{columns}[T,totalwidth=\textwidth]
+\column{0.4\textwidth}
+\begin{itemize}
+  \item this
+  \item works
+  \item well
+\end{itemize}
+
+\hfill
+
+\column{0.4\textwidth}
+- this
+- does
+- not
+- work
+\end{columns}
+
+\returnbutton{buttons_slide}{Return}
