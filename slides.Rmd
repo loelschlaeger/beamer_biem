@@ -30,6 +30,9 @@ toc-title: "Outline"
 
 # define last slide
 last-slide: true
+last-slide-title: "Thanks for your attention!"
+last-slide-email: "someone@example.com"
+last-slide-website: "https://example.org/"
 ---
 
 ```{r, include = FALSE}
