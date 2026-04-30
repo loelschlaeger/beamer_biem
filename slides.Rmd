@@ -86,14 +86,15 @@ A good slide keeps one main message and a few supporting points.
 
 \begin{columns}[T,totalwidth=\textwidth]
 \column{0.52\textwidth}
-### Key points
-
+\textbf{Key points}\par
+\vspace{0.3em}
 - Left column for narrative
 - Good for side-by-side comparisons
 - Keeps dense content readable
 
 \column{0.46\textwidth}
-### Snapshot
+\textbf{Snapshot}\par
+\vspace{0.3em}
 
 \begin{block}{KPI summary}
 \begin{itemize}
@@ -115,17 +116,13 @@ abline(lm(dist ~ speed, data = cars), col = "firebrick", lwd = 2)
 
 ## Table example
 
-```{r, echo=FALSE}
-knitr::kable(
-  data.frame(
-    Scenario = c("Baseline", "Pilot", "Target"),
-    Cost = c(100, 115, 120),
-    Impact = c("-", "+6%", "+10%")
-  ),
-  align = c("l", "r", "r"),
-  caption = "Illustrative planning table"
-)
-```
+| Scenario | Cost | Impact |
+|:---------|----:|------:|
+| Baseline | 100 | - |
+| Pilot    | 115 | +6\% |
+| Target   | 120 | +10\% |
+
+\small Illustrative planning table.
 
 ## Code block example
 
